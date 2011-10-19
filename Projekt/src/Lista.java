@@ -1,3 +1,4 @@
+import java.util.*;
 class Lista
 {
 	public Lista( String imie, String nazwisko)

@@ -1,4 +1,4 @@
-
+import java.util.*;
 class Klient {
 
 	public String imie;
