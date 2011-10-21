@@ -1,5 +1,5 @@
 package projekt_filmy;
-import java.util.*;
+
 class Film 
 {
 	public String tytul;;
