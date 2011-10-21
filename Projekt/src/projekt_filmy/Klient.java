@@ -17,6 +17,19 @@ class Klient {
 		this.nazwisko=nazwisko;
 		this.films=films;
 	}
+	public void wypozyczFilm(Film f){
+		films.add(f);
+	}
+	public void oddajFilm(Film f){
+		films.remove(f);
+	}
+	public int jestFilm(Film f){
+		return films.indexOf(f);
+	}
+	public void zmienFilm(Film f, String nowyTytul, String nowyGatunek){
+		f.tytul= nowyTytul;
+		f.gatunek = nowyGatunek;
+	}
 	public void printFilms()
 	{
 		for(Film c : this.films) c.printFilm();

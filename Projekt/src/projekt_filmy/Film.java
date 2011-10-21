@@ -2,8 +2,8 @@ package projekt_filmy;
 import java.util.*;
 class Film 
 {
-	private String tytul;;
-	private String gatunek;
+	public String tytul;;
+	public String gatunek;
 	public Film(String tytul, String gatunek)
 	{
 		this.gatunek=gatunek;
