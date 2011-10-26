@@ -23,8 +23,15 @@ class Klient {
 	public void oddajFilm(Film f){
 		films.remove(f);
 	}
-	public int jestFilm(Film f){
-		return films.indexOf(f);
+	public Film jestFilm(Film f){
+		if (films.indexOf(f) != -1)
+				{
+				return f;
+		}
+		else
+		System.out.println("nie ma filmu");
+		return f;
+		
 	}
 	public void zmienFilm(Film f, String nowyTytul, String nowyGatunek){
 		f.tytul= nowyTytul;
