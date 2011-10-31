@@ -1,6 +1,6 @@
 package projekt_filmy;
 
-class Film 
+public class Film 
 {
 	public String tytul;;
 	public String gatunek;
