@@ -1,6 +1,8 @@
-
-
 package projekt_filmy;
+
+
+
+//import projekt_filmy_events.Filmevent;
 
 public class Main 
 {
@@ -14,6 +16,9 @@ public class Main
 		lst.getFilms().add(new Film("Krwawy sport","sportowy"));
 		lst.getFilms().add(new Film("Bruce wszechmogacy","komedia"));
 		lst.getKlient().printFilms();
+		
+		//iFilmProcesses ChangeBox=new Paczka.ChangeBox();
+	
 	}
 
 }
