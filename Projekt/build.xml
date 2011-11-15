@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<project basedir="." name="VideoRental">
+
+	<property environment="env" />
+	<property name="junit.output.dir" value="junit" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+
+	<path id="VideoRental.classpath">
+		<pathelement location="bin" />
+		<pathelement location="lib/log4j-1.2.16.jar" />
+		<pathelement location="lib/junit-4.10.jar" />
+	</path>
+
+	<target name="init">
+		<mkdir dir="bin" />
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.launch" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+
+	<target depends="clean" name="cleanall" />
+
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+			<src path="src" />
+			<classpath refid="VideoRental.classpath" />
+		</javac>
+	</target>
+
+	<target name="Main">
+		<java classname="sala.patryk.projekt.wypozyczalniavideo.Main" failonerror="true" fork="yes">
+			<classpath refid="VideoRental.classpath" />
+		</java>
+	</target>
+
+	<target name="PersonTest">
+		<mkdir dir="${junit.output.dir}" />
+		<junit fork="yes" printsummary="withOutAndErr">
+			<formatter type="xml" />
+			<test name="sala.patryk.projekt.wypozyczalniavideo.tests.PersonTest" todir="${junit.output.dir}" />
+			<classpath refid="VideoRental.classpath" />
+		</junit>
+	</target>
+
+	<target name="compile">				
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin" />
+	</target>
+	<target name="jar">
+		<mkdir dir="bin/jar" />
+		<jar destfile="bin/jar/VideoRental.jar" basedir="bin">
+			<manifest>
+				<attribute name="Main-Class" value="Main" />
+			</manifest>
+		</jar>
+	</target >
+	<target name="run-jar">
+		<java jar="bin/jar/VideoRental.jar" fork="true" />
+	</target>
+</project>
