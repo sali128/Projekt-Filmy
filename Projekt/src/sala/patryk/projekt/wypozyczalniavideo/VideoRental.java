@@ -22,6 +22,11 @@ public class VideoRental {
 		videoList.remove(movie);
 		logger.debug("Usunieto film z wypozyczalni: " + movie.getTitle());
 	}
+	
+	public void setNewPriceForMovie(String movieTitle, float newPrice){
+		Movie movie = findMovieByTitle(movieTitle);
+		movie.setPrice(newPrice);
+	}
 
 	public void addNewMovie(Movie movie) {
 		videoList.add(movie);
