@@ -73,6 +73,15 @@ public class VideoRentTest {
 			Assert.fail("Wystapil wyjatek w czasie proby wypozyczenia filmu: " + e.getMessage());
 		}
 	}
+	
+	@Test
+	public void settingPriceTest(){
+		float newPrice = 555;
+		videoRental.setNewPriceForMovie("Dr House", newPrice);
+		Movie movie = videoRental.findMovieByTitle("Dr House");
+		Assert.assertEquals("BLAD, Nie udalo sie ustawic nowej ceny dla filmu ", movie.getPrice() ,newPrice);
+		
+	}
 
 	
 	@Test
